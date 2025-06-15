@@ -36,6 +36,7 @@
       color: red;
       text-decoration: none;
       font-weight: bold;
+      cursor: pointer;
     }
     nav a:hover {
       text-decoration: underline;
@@ -47,6 +48,15 @@
     }
     section {
       margin-bottom: 3rem;
+      display: none;
+    }
+    .welcome {
+      display: block;
+      text-align: center;
+      margin: 4rem 0;
+    }
+    .welcome h2 {
+      font-size: 2rem;
     }
     h2 {
       color: red;
@@ -58,14 +68,14 @@
       border-top: 2px solid red;
       font-size: 0.9rem;
     }
-    .welcome {
-      text-align: center;
-      margin: 4rem 0;
-    }
-    .welcome h2 {
-      font-size: 2rem;
-    }
   </style>
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('main section');
+      sections.forEach(sec => sec.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+  </script>
 </head>
 <body>
   <header>
@@ -73,13 +83,13 @@
     <p>Benvenuto nel portale italiano dedicato a GANTZ!</p>
   </header>
   <nav>
-    <a href="#trama">Trama</a>
-    <a href="#personaggi">Personaggi</a>
-    <a href="#analisi">Analisi</a>
-    <a href="#community">Community</a>
+    <a onclick="showSection('trama')">Trama</a>
+    <a onclick="showSection('personaggi')">Personaggi</a>
+    <a onclick="showSection('analisi')">Analisi</a>
+    <a onclick="showSection('community')">Community</a>
   </nav>
   <main>
-    <section class="welcome">
+    <section class="welcome" id="welcome">
       <h2>Benvenuto!</h2>
       <p>Questo è uno spazio creato da fan per i fan di GANTZ. Scopri la trama, approfondisci i personaggi e unisciti alla community per condividere teorie e passioni legate a quest'opera unica nel suo genere.</p>
     </section>
@@ -119,6 +129,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
